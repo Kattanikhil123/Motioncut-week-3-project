@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Page</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Trade+Winds&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+      font-family: 'Montserrat';
+    }
+
+    body {
+      background: #dfecff;
+      color: #7f8db0;
+    }
+
+    .wrapper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .product_wrap {
+      display: flex;
+      width: 950px;
+      margin: 100px auto;
+    }
+
+    .product_item {
+      width: 300px;
+      background: #fff;
+      margin-right: 20px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.125);
+    }
+
+    .product_item:last-child {
+      margin-right: 0;
+    }
+
+    .product_item .img img {
+      width: 200px;
+      margin-bottom: 10px;
+    }
+
+    .product_item .size_color {
+      margin: 25px 0;
+    }
+
+    .product_item .size_color .title {
+      margin-bottom: 10px;
+    }
+
+    .product_item .size_wrap ul {
+      display: flex;
+      justify-content: center;
+    }
+
+    .product_item .size_wrap li {
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      border-radius: 50%;
+      border: 1px solid #7f8db0;
+      margin: 5px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .product_item .size_wrap li span {
+      font-size: 14px;
+    }
+
+    .product_item .size_wrap li:hover {
+      background: #7f8db0;
+      color: #fff;
+    }
+
+    .product_item .price {
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .product_item .color_wrap ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+    }
+
+    .product_item .color_wrap ul li {
+      width: 22px;
+      height: 22px;
+      background: #000;
+      margin: 5px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .product_item .color_wrap ul li.active {
+      width: 30px;
+      height: 30px;
+    }
+
+    .add_to_cart {
+      background: #7f8db0;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .add_to_cart:hover {
+      background: #6a7798;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".color_wrap ul li").each(function(){
+        var color = $(this).attr("data-color");
+        $(this).css("backgroundColor", color);
+      });
+
+      $(".color_wrap ul li").click(function(){
+        $(this).parents(".product_item").find(".color_wrap ul li").removeClass("active");
+        $(this).addClass("active");
+        var img_src = $(this).attr("data-src");
+        $(this).parents(".product_item").find("img").attr("src", img_src);
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="product_wrap">
+      <div class="product_item">
+        <div class="img">
+          <img src="https://i.imgur.com/vuTSHe3.png" alt="Round_neck">
+          <p class="brand_name">H & M Round Neck</p>
+        </div>
+        <div class="size_color">
+          <div class="title">SIZE & COLOR</div>
+          <div class="size_wrap">
+            <ul>
+              <li><span>36</span></li>
+              <li><span>38</span></li>
+              <li><span>40</span></li>
+              <li><span>42</span></li>
+            </ul> 
+          </div>
+          <div class="color_wrap">
+            <ul>
+              <li data-color="#cab7a2" data-src="https://i.imgur.com/a31ZhsD.png"></li>
+              <li class="active" data-color="#532e35" data-src="https://i.imgur.com/vuTSHe3.png"></li>
+              <li data-color="#7f8cab" data-src="https://i.imgur.com/TT6hsaQ.png"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="price">
+          <p>$12</p>
+        </div>
+        <button class="add_to_cart">Add to Cart</button>
+      </div>
+      <div class="product_item">
+        <div class="img">
+          <img src="https://i.imgur.com/C5DUqYu.png" alt="Round_neck">
+          <p class="brand_name">Mast & Harbour</p>
+        </div>
+        <div class="size_color">
+          <div class="title">SIZE & COLOR</div>
+          <div class="size_wrap">
+            <ul>
+              <li><span>36</span></li>
+              <li><span>38</span></li>
+              <li><span>40</span></li>
+              <li><span>42</span></li>
+            </ul> 
+          </div>
+          <div class="color_wrap">
+            <ul>
+              <li data-color="#f5d3ca" data-src="https://i.imgur.com/m6qrQtW.png"></li>
+              <li class="active" data-color="#6c623f" data-src="https://i.imgur.com/C5DUqYu.png"></li>
+              <li data-color="#2d2c32" data-src="https://i.imgur.com/xbOCNap.png"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="price">
+          <p>$14</p>
+        </div>
+        <button class="add_to_cart">Add to Cart</button>
+      </div>
+      <div class="product_item">
+        <div class="img">
+          <img src="https://i.imgur.com/g6xpIKQ.png" alt="Round_neck">
+          <p class="brand_name">Adidas</p>
+        </div>
+        <div class="size_color">
+          <div class="title">SIZE & COLOR</div>
+          <div class="size_wrap">
+            <ul>
+              <li><span>36</span></li>
+              <li><span>38</span></li>
+              <li><span>40</span></li>
+              <li><span>42</span></li>
+            </ul> 
+          </div>
+          <div class="color_wrap">
+            <ul>
+              <li data-color="#0a5457" data-src="https://i.imgur.com/s2PKM1j.png"></li>
+              <li class="active" data-color="#b50a1d" data-src="https://i.imgur.com/g6xpIKQ.png"></li>
+              <li data-color="#fe911a" data-src="https://i.imgur.com/GkBF14L.png"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="price">
+          <p>$15</p>
+        </div>
+        <button class="add_to_cart">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
